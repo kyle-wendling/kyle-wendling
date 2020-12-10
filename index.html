@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>kyle wendling</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c2b2d167-b64b-46db-955f-2ebeb70f7829" class="page mono"><header><h1 class="page-title">kyle wendling</h1></header><div class="page-body"><p id="df2b0a1f-46ba-4eb8-9de2-d466beaea441" class="">🥑 <a href="https://kylewendling.org/kyle-wendling-resume.pdf">download résumé</a><mark class="highlight-blue"> | </mark>📨 <a href="mailto:x-kyle-wendling-portfolio@wendlink.com"><mark class="highlight-blue">contact</mark></a><mark class="highlight-blue"> | </mark>🤝 <a href="https://www.linkedin.com/in/kylewendling/"><mark class="highlight-blue">linkedin</mark></a><mark class="highlight-blue"> | </mark>👨‍🚀 <a href="https://github.com/kyle-wendling"><mark class="highlight-blue">github</mark></a><mark class="highlight-blue"> </mark></p><p id="b031a6e9-2138-48e3-a3fd-4279f9bcbd11" class="">
+</p><p id="355bef42-c1d8-4fbc-aea3-fd74316f5516" class="">
+</p><h2 id="093d18b2-cac3-42d8-8aa9-207746c55f6b" class="">🚀 <mark class="highlight-orange">products + projects</mark></h2><p id="8f21e592-544d-41c2-8341-2cc3fb916358" class="">
+</p><h3 id="ca3bf1f4-a9e1-440d-8ee4-2fa6492d8fbd" class=""><mark class="highlight-blue">Foursquare Attribution</mark></h3><div id="3d5cef25-f8d1-4e05-bf05-8c8f39a72855" class="column-list"><div id="5b63b22d-216d-43eb-b2bd-18e495cc7592" style="width:50%" class="column"><p id="afa44e19-0b13-472b-8459-5b3e7d7743c5" class=""><mark class="highlight-red">Measuring</mark> the real-world impact of advertising.</p><ul id="ac50a6f9-c8f2-43e8-a15e-e2f13907500e" class="bulleted-list"><li>1000+ brands and 450+ publishers clients (Twitter exclusive)</li></ul><ul id="4061de17-6713-4827-8039-cf5a885ea861" class="bulleted-list"><li><mark class="highlight-red">machine learning model</mark> for lift measurement + recommendations</li></ul><p id="13f5e326-a333-4ebb-b4a3-fab994d50488" class="">
+</p><p id="3bc67c18-f522-4f19-9bcb-97f669d4b676" class="">
+</p></div><div id="08c697a1-e991-43e3-98aa-2cb030fc2ca2" style="width:50%" class="column"><figure id="286efd21-b45d-417a-8976-f40058402f67" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/fsq-attr.png"><img style="width:934px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/fsq-attr.png"/></a></figure><p id="ef884640-cf84-4491-bb33-41cc6c657110" class="">
+</p></div></div><h3 id="21253db5-ea7b-4013-a1cb-6f853ea07ec4" class=""><mark class="highlight-red">🎯 Audiences + Targeting </mark></h3><div id="69309121-1957-4874-af88-c33d9a5ce894" class="column-list"><div id="e2580f8f-ff8d-4272-8279-4a19d65e5ea7" style="width:50%" class="column"><figure id="663f83f2-8ef8-4a16-8bf7-e40a2f63ebcf"><div class="source"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Audience-video_V3.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/49fbdbac-57c7-4f8c-b46b-60d6119286e1/Audience-video_V3.mp4</a></div></figure></div><div id="02c8af66-ae92-4b27-80e3-1fa77bbd8286" style="width:50%" class="column"><ul id="bd9f5776-26b8-441a-aa3f-84165a787a41" class="bulleted-list"><li><code>Audience</code> <code>SaaS</code> tools to power digital ad (re)targeting.
+(@ Foursquare &amp; Gimbal)</li></ul><ul id="7ce74e4b-1ee7-4fd4-ba9f-abd51a055b02" class="bulleted-list"><li>Audience <code>marketplaces</code> </li></ul><ul id="06d154a0-bf4f-41d8-a2ac-89221f58cff0" class="bulleted-list"><li>DaaS <code>APIs </code></li></ul><ul id="ffab8564-f103-4848-8fa2-92ce247b0c9e" class="bulleted-list"><li>marketplace integrations (DMPs, DSPs, SSPs)</li></ul><p id="0864fb2a-12a8-4fcd-934e-73b87e2288be" class="">
+</p></div></div><h3 id="178d8895-7e4c-4e71-a189-5ac088669a21" class=""><mark class="highlight-yellow">Recommendation Systems</mark></h3><div id="4149861b-29a5-4367-b8b1-c2417084425a" class="column-list"><div id="ce6b2d53-1804-4603-8eaa-33d38bdf8965" style="width:54.166666666666664%" class="column"><p id="b5bb6740-4ca7-4cad-9de6-cfc527abb0b9" class="">Applying machine learning to</p><ul id="56b168ff-835f-4e6d-82b1-0cecf602bdbb" class="bulleted-list"><li>drive ecommerce marketing funnel conversions </li></ul><ul id="b8ab0483-04c8-4f08-bbaa-c5e2cacb15f6" class="bulleted-list"><li>ad targeting and campaign optimatzations</li></ul><p id="34b45eab-bad2-489c-9c61-472e6520ae17" class="">
+</p></div><div id="a73bb123-9b5f-4aed-bd39-353aa2708682" style="width:20.833333333333332%" class="column"><figure id="7566b600-3b3e-48bd-9d0a-78153afdf13c" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/fs3.gif"><img style="width:144px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/fs3.gif"/></a></figure><p id="9918e226-055b-4a80-84cf-a8668e4792a7" class="">
+</p></div><div id="5b105160-dac5-4ecf-8349-d54e7b0f4724" style="width:25.00000000000002%" class="column"><figure id="da97500f-d330-49f4-8ea0-b80296bbf953" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/fs2.gif"><img style="width:132px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/fs2.gif"/></a></figure><p id="35237261-e887-428d-836a-8d3a44afc65b" class="">
+</p></div></div><h3 id="6ec827a5-2395-4432-a7f1-c6868d1ebd66" class=""><mark class="highlight-brown">Gimbal Trends</mark></h3><div id="4adfaf02-26f3-463b-ad13-2c0c43bdf6d1" class="column-list"><div id="9af39875-5409-46ae-8ae4-aa168b04ff3e" style="width:50%" class="column"><p id="838e022e-9f16-4d70-95d1-28009fc81c54" class="">SaaS <code>location analytics</code> and insights plaform. </p><ul id="a6789fd9-5285-4cef-954c-5c22358a47b4" class="bulleted-list"><li>data: 30+MM mobile MAUs via 1st party SDK pipeline</li></ul><ul id="0f30dcaf-dd3d-4b6e-9bf0-9062d1c81933" class="bulleted-list"><li>&quot;<em>0 to launch&#x27;</em> in one quarter</li></ul><p id="acd24ce4-e097-42bc-9d4b-54e757dd5d50" class="">
+</p><p id="c350cf4d-1b62-4860-b31a-6e37481ad32f" class=""><em><code>&quot;SEE WHAT’S TRENDING. IRL.&quot;</code></em></p><p id="b6f77e50-0189-4a5d-8ebc-77825f602d9a" class="">
+</p></div><div id="25e439af-6714-4ff9-92a8-8ac9750e13f2" style="width:50%" class="column"><figure id="5a533255-f4da-496b-aaee-33711b227ca6" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-03_at_12.44.11_PM.png"><img style="width:288px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-03_at_12.44.11_PM.png"/></a></figure><p id="fbc84421-14af-4d8c-b4fc-fb9e6b0edb3d" class="">
+</p></div></div><h3 id="24f930ba-69ef-4b92-8967-8f76ff078842" class=""><mark class="highlight-blue">Location Choices </mark></h3><div id="82cab2e2-029b-4163-a187-1ffbc0ea5407" class="column-list"><div id="b549c9dd-f3be-43e0-9428-a4f98d3b0182" style="width:50%" class="column"><figure id="89cb05bd-cce1-4df3-92ae-c3f9c9c2d6b2" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-11-03_at_3.47.36_PM.png"><img style="width:944px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-11-03_at_3.47.36_PM.png"/></a></figure></div><div id="c2eb6bee-91de-4781-8d98-38fb881bfb2b" style="width:50.00000000000002%" class="column"><p id="980199aa-dd11-4033-a026-9cfbd7d5a283" class="">iOS app to give mobile consumers control over AdID and IDFA tracking. Enables ad-tech industry <code>compilance</code> with <code>CCPA</code>, <code>GDPR</code> + future regulatory requirements. </p><p id="d6832a17-4b89-4a6f-a443-cbaee588cb5f" class=""><em>privacy by design</em></p><p id="27e9cfee-7608-4bff-a502-6c7847b1e7cc" class="">
+</p></div></div><p id="a4bf63e7-8676-480f-9016-9873ef896375" class="">
+</p><p id="6c4fb4de-2885-4d70-884b-d3f5603ec66b" class="">
+</p><h3 id="f3975404-a3ed-48d0-9ec4-05da81367e75" class=""><mark class="highlight-teal">321Speak</mark></h3><div id="9c673323-c478-4921-9b66-3ac0fc62b66b" class="column-list"><div id="d4663d57-67f4-454e-8817-a0cd4329ec72" style="width:50%" class="column"><p id="fd689218-2e41-48d0-bc24-620da15e0f92" class="">Mobile app ecosystem for <mark class="highlight-teal">language learning </mark></p><ul id="dd5a04d2-27c7-4ee7-9dfd-a72c09d64e23" class="bulleted-list"><li>10+ mm downloads</li></ul><ul id="022ae7bb-38fb-4392-b6ab-f593b4b39ff2" class="bulleted-list"><li>5+ mm MAUs (2013)</li></ul><ul id="f8b6c64d-133d-4fd4-b2ac-ee8a4551799b" class="bulleted-list"><li>20+ apps covering 8 languages iPhone / iPad / Android / Web</li></ul><p id="4dd69bbb-76ed-44ca-b4eb-40196ea39381" class="">
+</p></div><div id="2a235abf-b8f1-4e9a-9235-86f2a1b1ec93" style="width:50%" class="column"><figure id="daf417c2-f92a-492a-b74b-2e4cfc719743" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_1.26.16_PM.png"><img style="width:1016px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_1.26.16_PM.png"/></a></figure><p id="61fa261c-6012-4293-bd16-7c197efd0e4c" class="">
+</p></div></div><h3 id="16cc28c2-a5b0-402e-b0a9-5d9f7a6a48d1" class=""><mark class="highlight-pink">iOS / Android location SDKs</mark></h3><div id="1a7220dd-9c50-4248-ba87-da248d3024c0" class="column-list"><div id="7a5cdf57-18ff-42a5-a62b-89f5f5336367" style="width:50%" class="column"><figure id="be906f61-1232-4a2d-bf64-e4d6f21f0a47" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-03_at_12.54.30_PM.png"><img style="width:288px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-03_at_12.54.30_PM.png"/></a></figure></div><div id="32fc600d-04c8-4f0f-9943-9be52afb446d" style="width:50.000000000000014%" class="column"><p id="46bcfe21-6ca6-4e6b-a82b-377f39e70115" class="">Mobile location SDK ecosystems</p><ul id="85b8d8a3-8521-4458-af7f-0dcf80288aed" class="bulleted-list"><li>50+ mm MAUs under management (Foursquare + Gimbal SDK) </li></ul><ul id="6800a529-75a8-4bdf-a088-10a4ff86e596" class="bulleted-list"><li>1+ trillion 🤔 location data points </li></ul><ul id="c9344bc3-55f8-4641-92f1-897f3c9fc4d4" class="bulleted-list"><li>client apps: Tinder, MLB, Disney, Accuweather, Sephora</li></ul><ul id="1174c725-b6c8-4117-9c8a-028f2321219c" class="bulleted-list"><li>privacy / compliance / trust &amp; saftey managment</li></ul><p id="985abb19-e987-4d10-96e7-1d7913466b47" class="">
+</p></div></div><hr id="21e2cd3b-9d6f-44ea-9a73-3acac170e6a6"/><h2 id="71cd4d5b-f08f-4d6f-9814-cda888a48a1d" class="">🥳 <mark class="highlight-orange">recent publications</mark></h2><p id="149297a7-afb3-40d0-9edf-284f6ea022af" class="">
+</p><ul id="ae80300a-80c1-4e30-b64b-c6cbd03cb054" class="bulleted-list"><li><a href="https://streetfightmag.com/2020/01/10/gimbal-app-gives-consumers-more-choice-privacy-controls/">Gimbal App gives consumers more choice and privacy controls</a>, <em>StreetFight</em></li></ul><ul id="d48200e6-9bca-4b25-bc26-decf953fcb96" class="bulleted-list"><li><a href="https://enterprise.foursquare.com/intersections/article/attribution-by-foursquare-boasts-new-machine-learn/">Attribution by Foursquare Boasts New Machine Learning Methodology, Dashboard and Partners</a></li></ul><ul id="f352663e-2754-4477-9e11-bbb8ac00a0b3" class="bulleted-list"><li>&quot;Gimbal Hires Kyle Wendling as SVP of Product,&quot; <em>Newswire, 2020</em></li></ul><ul id="40244c26-8ffe-4ca1-af16-46dee278a400" class="bulleted-list"><li><a href="https://mobilemarketingmagazine.com/foursquare-is-expanding-its-attribution-solution-to-be-able-to-measure-ooh-ads-%23:~:text=Foursquare%20is%20expanding%20its%20Attribution%20Solution%20to%20be%20able%20to%20measure%20OOH%20ads,-Alyssa%20Clementi&amp;text=Foursquare,%20the%20location%20intelligence%20platform,advertising,%20including%20ROI%20from%20billboards.">&quot;Foursquare is expanding its Attribution Solution to be able to measure OOH Ads,&quot;</a>  <em>Mobile Marketing Magazine</em></li></ul><ul id="932e8a2e-ae3a-498c-ba91-c765f8c24f62" class="bulleted-list"><li><a href="https://enterprise.foursquare.com/intersections/article/connecting-the-small-screen-with-the-real-world/">&quot;Connecting the Small Screen with the Real World,&quot;</a> <em>Foursquare Intersections</em></li></ul><ul id="638be2b1-b4fa-425a-93a8-2829e72a3f55" class="bulleted-list"><li><a href="https://martechseries.com/analytics/marketing-attribution/iheartmedia-jelli-foursquare-team-launch-new-attribution-product-advertisers/%23:~:text=iHeartMedia,%20Jelli%20and%20Foursquare%20announced,from%20location%20technology%20company%20Foursquare.">&quot;iHeartMedia, Jelli and Foursquare ... Launch Attribution Product,&quot;</a> <em>Martech Series</em></li></ul><p id="a8d77796-9f0b-40cb-9d7e-c3befbcb0043" class="">
+</p><hr id="f60b780f-fbd8-4b38-8472-5b68d2f7555b"/><h2 id="0829bc95-8bdc-4275-8b61-adc9257ce0c3" class="">💪 <mark class="highlight-orange">teams + product resources</mark></h2><p id="bfc6febd-d20c-4e60-953c-aeaa5ab3ad30" class="">
+</p><p id="e072caf8-ae02-49aa-b481-b20d22f8d06a" class=""><a href="https://www.theproductmentor.com/">TheProductGroup Product Mentorship Program</a> 💖</p><div id="3e9399d0-2d45-408c-8d0a-7044a305e9cf" class="column-list"><div id="2be8b749-b9b5-4443-ab64-b75298c9f949" style="width:50%" class="column"><figure id="4128ed45-8042-48e3-acd5-c7f99e465d7d" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.26.49_PM.png"><img style="width:984px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.26.49_PM.png"/></a></figure></div><div id="7f23d7bd-892f-40fe-a5b4-0787dc1faefd" style="width:50.000000000000014%" class="column"><p id="c4c2f4be-0504-4ec1-9fde-bb1f6a96e710" class=""><a href="https://docs.google.com/spreadsheets/d/1PdR0kCPx7YF5FQoLnVcISdp6yFSyvho_kII-315GOKY/edit?usp=drive_web&amp;ouid=116982113797425549117">🚘 roadmap - 101 link</a> ←<code> mentees, start here</code></p><p id="443a4741-04a5-4786-8e34-1e76987e51f0" class="">
+</p></div></div><div id="a9f7c347-680d-4e67-b2d7-b44060324d76" class="column-list"><div id="eb60daa9-6b24-4675-a02b-0bb25e7df630" style="width:50%" class="column"><p id="889a0d04-dc9a-4f9a-996f-42c6c77d6eb2" class=""><a href="https://docs.google.com/presentation/d/1h4OB46DSUfVuJ3ntH8VsqoE6Fx-4t71mQWqfsfkFVp8/edit?usp=sharing">(mis)Adventures in Data SaaS</a></p><p id="2f713555-7af8-40e5-b097-25fd478a8a4c" class="">
+</p></div><div id="70cb87d6-0680-434e-99f9-f0e74571a1f3" style="width:50.00000000000002%" class="column"><figure id="57b20a6d-2547-4773-af89-c923482f4ccf" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.24.49_PM.png"><img style="width:1138px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.24.49_PM.png"/></a></figure><p id="aa8186c6-b773-42e6-9100-21532ee088c8" class="">
+</p></div></div><p id="2a69f555-0f73-48fa-8e49-cca5e5a7b6c8" class=""><a href="https://wendlink.com">Structuring teams for velocity</a></p><p id="494c34ef-58f9-4b6b-b6b1-9881f04bb4cc" class="">
+</p><hr id="9f761467-234b-4086-bd66-64b6634e12f4"/><h2 id="a4d81b65-610b-419d-86cc-154252f932fc" class="">👩‍🚀<mark class="highlight-orange"> design systems + feature ideation</mark></h2><h3 id="a8229392-ad76-4b36-8fe5-c05f3e380ea9" class=""><mark class="highlight-blue">SaaS design</mark></h3><div id="b6416820-8d41-466e-8783-3e1ce8bac07e" class="column-list"><div id="93817fe0-aa42-40fc-bf95-9aac047ded44" style="width:50%" class="column"><p id="0e3ea1e1-ba82-44fb-bda7-092607264c9d" class="">Audience recommendations and optimization UI toolkit 
+(white label)</p><p id="a774860e-06cc-47e4-a74a-11d65540b602" class="">
+</p></div><div id="fea7f18a-9425-4963-9bb8-953e580332f4" style="width:50%" class="column"><figure id="13c456d4-8813-48be-8547-7661f2ada755" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-11-03_at_3.43.30_PM_(1).png"><img style="width:1128px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-11-03_at_3.43.30_PM_(1).png"/></a></figure><p id="0fa50088-cefe-4835-88a2-7fc5eb987dc7" class="">
+</p></div></div><p id="45c84abc-2805-414e-aa1b-bbcc581ec4ab" class="">watch this space </p><p id="1241f1cc-47cf-426c-98e7-aa24f36fb46b" class="">
+</p><hr id="a3c52039-cad4-405e-81c2-ab71cba7bd7a"/><h2 id="7ef251c5-a5e8-4656-b885-2ff8bdb9a0d5" class="">😷 <mark class="highlight-orange">pandemic projects + </mark>⁉️</h2><p id="c14c613d-835c-4c8a-9e63-fd660f21ded0" class="">
+</p><div id="51e018d8-061e-4dfd-85ef-dfdfccf9cba4" class="column-list"><div id="ba39473b-3bf9-448b-bcf7-2f2105b67c93" style="width:50%" class="column"><h3 id="4501b25e-b965-4e36-afa3-c45a6cef6b58" class=""><mark class="highlight-blue"><a href="https://wendlink.com/donate.html">Donate masks for docs</a></mark></h3><p id="26f85909-9a92-45fe-9097-736b3fbbdba7" class="">
+</p></div><div id="0916dc9a-cb9f-42f6-843f-84567ef02573" style="width:50%" class="column"><figure id="2545dad3-0659-4c8b-a696-3d2920c9ae9a" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.30.02_PM.png"><img style="width:934px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.30.02_PM.png"/></a></figure><p id="c7822b3d-c250-424a-a7e2-3850d2e0a28a" class="">
+</p><p id="234d95ec-ca46-4838-b7e5-f0b521fac4b0" class="">
+</p></div></div><div id="9122a9b8-b711-477d-b2ff-7ab5cec0c075" class="column-list"><div id="75ec1449-5d1d-471d-ba5a-6f917bfc7ace" style="width:50.000000000000014%" class="column"><figure id="074dc049-733a-4c9e-b1d9-97cb9e8325d2" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.32.48_PM.png"><img style="width:1141px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Screen_Shot_2020-12-04_at_2.32.48_PM.png"/></a></figure><p id="1ec49e28-3122-4769-b578-1c32bf6f51b3" class="">
+</p><p id="d6633ddc-f799-43dd-b8cf-6f72ceb3ee2d" class="">
+</p></div><div id="6c05ceaf-9d02-46b1-94b8-08c4521c2cc6" style="width:50.000000000000014%" class="column"><h3 id="0ace0d35-e5ca-41b3-9530-ef2ecaf0464b" class="">Visualization <a href="https://graphcommons.com/graphs/5286a641-e0e5-4d6d-9cb7-98c065c3568a?auto=true&amp;layout=fd&amp;webgl=true">Ad-tech Venture Capital</a></h3><p id="cbe0e0c0-2744-4ea0-a7a3-73ac2699044c" class="">Force-directed graph fun 📊</p><p id="7061e8d8-a944-4d5d-a4ba-589bf1c8111f" class="">
+</p></div></div><h3 id="b48ae7f3-c7cd-4faa-907f-e14634de06ea" class=""><mark class="highlight-brown">being </mark><a href="https://github.com/kyle-wendling"><mark class="highlight-brown">chrome-meowcovich</mark></a></h3><div id="282ea6d4-7eb4-474a-8822-7fada06850b0" class="column-list"><div id="c824568f-1811-4036-b20c-96440471874b" style="width:50%" class="column"><p id="e06b26dc-5b84-41ed-bf25-0ba9a3f780c7" class=""><strong>First</strong> in-browser client side face recognition and feature detection app. </p><p id="559bc3ad-376b-441d-acfc-0df5539d964f" class="">
+</p><p id="a66b893b-7e9a-4ec7-b53d-f0ffa4662ba1" class="">using: tensorflow js, face-api, Dlib 68 points model</p><p id="17f9dc7c-1ada-45e1-bf79-9cc626507768" class="">
+</p><p id="181410f2-6364-45bb-b55e-5412435f2cb7" class=""><code>[{&quot;weights&quot;: [ {&quot;name&quot;: &quot;conv0/filters&quot;, &quot;shape&quot;: [ 3, 3, 3, 16 ], &quot;dtype&quot;: &quot;float32&quot;, &quot;quantization&quot;: {&quot;dtype&quot;: &quot;uint8&quot;, ...</code></p><p id="1b9ad11b-0aa5-413a-9448-6ca75b724ed7" class="">
+</p></div><div id="012f1f50-9a19-4096-8d66-dd21c0ee6728" style="width:50%" class="column"><figure id="b04eecff-dc3b-4cb3-b5f1-41d8ac5610bd" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Start_a.png"><img style="width:1396px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/Start_a.png"/></a></figure><p id="436dde5a-0c79-4a00-acc6-25c54501fc86" class="">
+</p></div></div><p id="74033565-6527-4604-b12a-9b5c952b005b" class="">
+</p><p id="0a33c229-8443-4cb4-a023-c5717dd2f04d" class="">
+</p><div id="1f609804-c9d0-4de1-b94a-8d6dca5c7d82" class="column-list"><div id="de93804d-b2a8-42c4-8577-3b4573d8d7ec" style="width:50%" class="column"><h3 id="0804b44f-f4cf-4945-9236-d8a287079b9b" class=""><mark class="highlight-purple"><a href="https://github.com/kyle-wendling/isometric">isometric js fun</a></mark></h3><p id="6e968e92-c926-4e64-9e96-117d3f43b69a" class="">
+</p></div><div id="30ea3049-18c1-49aa-b165-1635fa26ccbc" style="width:50%" class="column"><figure id="f9c7eff0-2ecc-4101-b751-538dc40209cd" class="image"><a href="kyle%20wendling%20286efd21b45d417a8976f40058402f67/iso-fun-short.2020-12-04_14_50_36.gif"><img style="width:240px" src="kyle%20wendling%20286efd21b45d417a8976f40058402f67/iso-fun-short.2020-12-04_14_50_36.gif"/></a></figure><p id="eaf3bb08-6018-4526-a9af-3772653d1918" class="">
+</p></div></div><hr id="8243ea9b-780d-4ea8-905a-9b0628d9ce93"/><h2 id="8e923807-bb25-4891-a4a9-46975c7c6f2f" class="">🤹 <mark class="highlight-orange">skill cloud (SEO)</mark></h2><p id="c749c059-1c69-4edd-b4ce-df6bf613415d" class="">ad-tech, mar-tech, marketing funnel optimization, machine learning, ml, gpt-3, attribution, programmatic, hadoop, aws, team building, scaling, ecommerce, two sided marketplaces, ed-tech, fin-tech, SaaS, DaaS, churn reduction, </p><p id="a99372fd-ab0b-4788-b0eb-34b8fdf7cd40" class="">
+</p><p id="bdf26fcd-ed23-41c8-b12f-993ea68e335c" class="">
+</p><p id="32783aa1-0730-4118-9211-eb6860a0d3b6" class="">
+</p><p id="7d0e5b47-d4ff-4eb3-8e8a-cb36bd61e70c" class="">
+</p><p id="1470da5f-07f4-4faf-b498-37c3509bfabf" class="">
+</p><p id="43dac92a-7803-4e64-bbfc-46582467b3a5" class="">
+</p></div></article></body></html>
